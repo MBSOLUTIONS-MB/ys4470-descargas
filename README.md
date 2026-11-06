@@ -11,9 +11,42 @@ Pensado para el banco de reparación de teléfonos: medir, ver el consumo al enc
 
 1. Entra a **[Releases](https://github.com/MBSOLUTIONS-MB/ys4470-descargas/releases/latest)** (no hace falta cuenta).
 2. Descarga `MB-Meter_x.y.z_x64-setup.exe` y ejecútalo (Windows 10/11).
-3. Conecta el equipo por USB y abre MB Meter. Funciona sin driver.
+3. Abre MB Meter. Si tu equipo todavía tiene el firmware de fábrica, sigue los pasos de abajo para instalar el firmware MB.
 
 Las siguientes versiones llegan solas: MB Meter avisa cuando hay una nueva, del programa o del firmware.
+
+## Instalar el firmware MB en el equipo
+
+### La primera vez (equipo con el firmware de fábrica)
+
+El firmware de fábrica no se comunica con MB Meter, así que la primera vez se graba en **modo FEL**. Se hace una sola vez y tarda unos 5 minutos.
+
+1. Abre MB Meter y entra a **Rescate (FEL)** (tecla F9).
+2. Si el instalador no puso el driver FEL, pulsa **Instalar driver FEL…** una vez.
+3. **Desconecta y apaga** el multímetro.
+4. **Mantén apretado el botón de atrás**, el que está encima del USB «Power Equipment». Sin soltarlo, conecta el USB a la PC y enciende el equipo. Suelta el botón a los 2 o 3 segundos.
+5. **La pantalla se queda apagada:** es normal, así es el modo FEL. MB Meter muestra «equipo en modo FEL».
+6. Elige **Firmware MB más reciente** y deja marcada la **copia completa de la flash** (16 MB, unos 3 min). La primera vez la copia es obligatoria: con ella siempre puedes volver al firmware original.
+7. Pulsa **Grabar**. MB Meter graba, relee y comprueba. No desconectes el cable mientras graba.
+8. Cuando diga «Listo», desconecta el USB y enciende el equipo normal. Debe mostrar **FW MB 0.9.9**.
+
+La copia queda en `Documentos\MB Meter\Respaldos`. Guárdala: es única de tu equipo.
+
+### Las siguientes veces (por USB, sin modo FEL)
+
+1. Enciende el equipo normal y conéctalo por USB.
+2. En MB Meter entra a **Actualizar** (F8). Si hay versión nueva, pulsa **Actualizar por USB**. Si tienes un archivo, usa **Desde un archivo .bin…**.
+3. MB Meter envía el firmware y lo comprueba completo.
+4. Cuando el equipo pregunte **«¿Actualizar firmware?»**, pulsa **OK** en el multímetro.
+5. El equipo instala en unos 10 segundos y se reinicia solo con la versión nueva.
+
+No apagues ni desconectes el equipo mientras instala.
+
+### Si algo sale mal
+
+- **El equipo no arranca:** vuelve a grabarlo en modo FEL con los pasos de «La primera vez».
+- **Quieres el firmware original:** en **Rescate (FEL)** elige **Volver al firmware original**. Se graba desde tu copia y no toca la serie ni los ajustes del equipo.
+- **Falla una actualización por USB:** el paso exacto queda anotado en `%APPDATA%\com.mbsolutions.mbmeter\actualizacion.log`.
 
 ## El firmware en el equipo
 
@@ -52,7 +85,6 @@ Además: **Historial**, **Reportes** para el cliente, **Actualizar** y **Rescate
 
 - **Por USB, desde MB Meter.** El archivo se envía y se comprueba completo antes de tocar nada. El equipo no se graba hasta que pulses **OK** en él. Cada bloque se graba, se relee y se reintenta si falla.
 - **Copia de seguridad.** La primera vez que grabas, MB Meter guarda la memoria entera del equipo (16 MB) en Documentos. Con esa copia siempre puedes volver al firmware de fábrica.
-- **Rescate (FEL).** Si el equipo no arranca, MB Meter lo graba en modo FEL. El instalador trae la herramienta y, si quieres, el driver.
 
 El logo de arranque de fábrica no se cambia; si quieres uno propio, se pone desde MB Meter.
 
