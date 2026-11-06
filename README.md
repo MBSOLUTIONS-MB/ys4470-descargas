@@ -25,7 +25,7 @@ El firmware de fábrica no se comunica con MB Meter, así que la primera vez se 
 2. Si el instalador no puso el driver FEL, pulsa **Instalar driver FEL…** una vez.
 3. **Desconecta y apaga** el multímetro.
 4. **Mantén apretado el botón de atrás**, el que está encima del USB «Power Equipment». Sin soltarlo, conecta el USB a la PC y enciende el equipo. Suelta el botón a los 2 o 3 segundos.
-5. **La pantalla se queda apagada:** es normal, así es el modo FEL. MB Meter muestra «equipo en modo FEL».
+5. **La pantalla se queda apagada:** es normal, así es el modo FEL. Cuando MB Meter lo detecta, el botón cambia de «Grabar (esperando equipo)» a «Grabar».
 6. Elige **Firmware MB más reciente** y deja marcada la **copia completa de la flash** (16 MB, unos 3 min). La primera vez la copia es obligatoria: con ella siempre puedes volver al firmware original.
 7. Pulsa **Grabar**. MB Meter graba, relee y comprueba. No desconectes el cable mientras graba.
 8. Cuando diga «Listo», desconecta el USB y enciende el equipo normal. Debe mostrar **FW MB 0.9.9**.
