@@ -3,7 +3,7 @@
 Firmware alternativo para el multímetro y fuente **YS-4470**, y **MB Meter**, su programa para Windows.
 Pensado para el banco de reparación de teléfonos: medir, ver el consumo al encender y comparar una placa buena contra una mala.
 
-**Versión actual:** firmware MB 0.9.9 · MB Meter 0.2.0
+**Versión actual:** firmware MB 0.9.10 · MB Meter 0.2.1 · **versión de prueba**
 
 <p align="center"><img src="img/eq_inicio.png" width="640" alt="Pantalla de Inicio del equipo con seis funciones"></p>
 
@@ -28,7 +28,7 @@ El firmware de fábrica no se comunica con MB Meter, así que la primera vez se 
 5. **La pantalla se queda apagada:** es normal, así es el modo FEL. Cuando MB Meter lo detecta, el botón cambia de «Grabar (esperando equipo)» a «Grabar».
 6. Elige **Firmware MB más reciente** y deja marcada la **copia completa de la flash** (16 MB, unos 3 min). La primera vez la copia es obligatoria: con ella siempre puedes volver al firmware original.
 7. Pulsa **Grabar**. MB Meter graba, relee y comprueba. No desconectes el cable mientras graba.
-8. Cuando diga «Listo», desconecta el USB y enciende el equipo normal. Debe mostrar **FW MB 0.9.9**.
+8. Cuando diga «Listo», desconecta el USB y enciende el equipo normal. Debe mostrar **FW MB** y el número de versión.
 
 La copia queda en `Documentos\MB Meter\Respaldos`. Guárdala: es única de tu equipo.
 
@@ -47,6 +47,40 @@ No apagues ni desconectes el equipo mientras instala.
 - **El equipo no arranca:** vuelve a grabarlo en modo FEL con los pasos de «La primera vez».
 - **Quieres el firmware original:** en **Rescate (FEL)** elige **Volver al firmware original**. Se graba desde tu copia y no toca la serie ni los ajustes del equipo.
 - **Falla una actualización por USB:** el paso exacto queda anotado en `%APPDATA%\com.mbsolutions.mbmeter\actualizacion.log`.
+
+## Firmware MB contra el firmware original
+
+Comparado con el firmware original de fábrica (Mr.Yang V02.26.6).
+
+**Medición**
+- Puntas juntas en Ω: el MB marca 0.000 Ω; el original, unos 3.1 Ω.
+- Mínimo, máximo y promedio bajo cada lectura, con barra de escala.
+- HOLD congela la lectura igual en el equipo y en la PC.
+- Corriente fuera de rango: marca «OL» en vez de un número falso.
+- Diodo: el original daba un solo pitido al hacer contacto. El MB pita seguido en corto, con umbral ajustable o desactivado.
+- Continuidad: umbral ajustable (10 a 50 Ω) y tono que cambia según la resistencia.
+- Calibración por software de las 9 mediciones, desde el equipo o desde la PC.
+
+**Pantallas**
+- Inicio con seis funciones directas (F1 a F6), con tecla o tocando la pantalla.
+- Análisis de encendido: curva de consumo, pico y tiempo.
+- Carga PD: V, A, W y mAh, más las líneas CC1, CC2, D+ y D− en la PC.
+- Historial de mediciones, con grabado automático de lecturas estables.
+- Alarma de voltaje de 2 V a 30 V, para teléfonos, laptops y fuentes de banco.
+
+**Ajustes**
+- 5 temas de color, volumen en tres niveles, brillo y apagado de pantalla.
+- El botón ⏻ apaga la pantalla. Antes no hacía nada.
+
+**Programa de PC (MB Meter)**
+- Funciona sin driver.
+- En vivo, Comparar placas (placa buena contra placa mala, tolerancia de 0.5 % a 50 %), encendido comparado contra placas buenas, log de carga (CSV o imagen) y reportes para el cliente.
+- Ajustes del equipo desde la PC.
+
+**Actualizar y rescatar**
+- Por USB, con comprobación completa antes de grabar, OK en el equipo y reintentos por bloque.
+- Copia de 16 MB antes de grabar, Rescate por FEL con driver incluido y actualización automática desde GitHub.
+- El logo de arranque de fábrica se respeta.
 
 ## El firmware en el equipo
 
@@ -89,6 +123,12 @@ Además: **Historial**, **Reportes** para el cliente, **Actualizar** y **Rescate
 El logo de arranque de fábrica no se cambia; si quieres uno propio, se pone desde MB Meter.
 
 ## Novedades de esta versión
+
+**0.2.1 · firmware 0.9.10 (versión de prueba)**
+
+- Pitido en diodo: en modo diodo el equipo pita seguido cuando la caída de tensión es casi cero (corto). Se desactiva o se elige el umbral (0.010 a 0.200 V, de fábrica 0.050 V) en el equipo, en **Ajustes → Sonido → Pitido en diodo**, o desde MB Meter, en **Equipo**.
+
+**0.2.0 · firmware 0.9.9**
 
 - Actualización por USB confiable: reintenta cada bloque y lo comprueba; si algo falla queda anotado en `%APPDATA%\com.mbsolutions.mbmeter\actualizacion.log`.
 - Ya no se queda pitando al instalar.
